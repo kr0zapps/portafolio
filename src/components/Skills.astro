@@ -1,0 +1,52 @@
+---
+import { skills } from '../data/skills';
+import { Smartphone, Layout, Database, Wrench } from 'lucide-astro';
+
+const getIcon = (name: string | undefined) => {
+  switch (name) {
+    case 'smartphone': return Smartphone;
+    case 'layout': return Layout;
+    case 'database': return Database;
+    case 'wrench': return Wrench;
+    default: return Wrench;
+  }
+};
+---
+
+<section class="py-24 px-6 max-w-6xl mx-auto">
+  <div class="mb-16">
+    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 flex items-center gap-4">
+      <span class="w-8 h-1px bg-accent-secondary block"></span>
+      Habilidades Técnicas
+    </h2>
+    <p class="text-slate-400 max-w-2xl">
+      Herramientas y tecnologías que domino para construir soluciones completas, desde la interfaz hasta el backend.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {skills.map(category => {
+      const Icon = getIcon(category.iconName);
+      
+      return (
+        <div class="glass p-6 rounded-2xl hover:border-accent-secondary/50 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-accent-secondary/10 flex items-center justify-center mb-6 group-hover:bg-accent-secondary/20 transition-colors">
+            <Icon class="w-6 h-6 text-accent-secondary" />
+          </div>
+          
+          <h3 class="text-lg font-heading font-semibold text-white mb-4">
+            {category.title}
+          </h3>
+          
+          <div class="flex flex-wrap gap-2">
+            {category.skills.map(skill => (
+              <span class="px-3 py-1.5 text-xs font-medium text-slate-300 bg-surface border border-white/5 rounded-md hover:border-accent-secondary/30 transition-colors cursor-default">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>

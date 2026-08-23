@@ -1,0 +1,554 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Jonathan Vidal - Software Engineer">
+    
+    <!-- Dynamic Glowing Grid Overlay -->
+    <div class="fixed inset-0  z-[-1]">
+        <!-- Subtle grain texture -->
+        <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+        <!-- ThreeJS Canvas -->
+        <div id="threejs-canvas" class="absolute inset-0 opacity-40 dark:opacity-60"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 p-2 rounded-full bg-white/70 dark:bg-[#0a0a10]/70 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 shadow-lg flex items-center gap-3 transition-all duration-500 w-[90%] md:w-auto justify-between md:justify-center">
+        <!-- Logo -->
+        <a href="#" class="font-bold tracking-widest uppercase text-xs hover:text-[#0052FF] transition-colors shrink-0 pl-4">KR0ZAPPS</a>
+        
+        <!-- Divider -->
+        <div class="hidden md:block h-4 w-[1px] bg-gray-300 dark:bg-gray-700 mx-2"></div>
+        
+        <!-- Links (Segmented Control style) -->
+        <div class="hidden md:flex items-center gap-1 text-sm font-medium shrink-0">
+            <a href="#work" class="px-5 py-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-[#1a1c1c] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all active:scale-95">Trabajo</a>
+            <a href="#stack" class="px-5 py-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-[#1a1c1c] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all active:scale-95">Ingeniería</a>
+            <a href="#" class="px-5 py-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-[#1a1c1c] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all active:scale-95">Sobre mí</a>
+        </div>
+        
+        <!-- Divider -->
+        <div class="hidden md:block h-4 w-[1px] bg-gray-300 dark:bg-gray-700 mx-2"></div>
+        
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="relative w-14 h-8 rounded-full bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none overflow-hidden flex items-center transition-colors shrink-0 mr-1 group">
+            <div id="theme-slider" class="absolute left-1 w-6 h-6 rounded-full bg-white dark:bg-black shadow-sm flex items-center justify-center transition-transform duration-300 transform dark:translate-x-6 group-hover:scale-95">
+                <i data-lucide="sun" class="w-3.5 h-3.5 text-orange-500 dark:opacity-0 transition-opacity absolute"></i>
+                <i data-lucide="moon" class="w-3.5 h-3.5 text-blue-400 opacity-0 dark:opacity-100 transition-opacity absolute"></i>
+            </div>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative min-h-[100svh] flex flex-col justify-center items-center px-6 pt-24 pb-12 overflow-hidden">
+        <div class="w-full max-w-[90rem] mx-auto flex flex-col items-start relative z-10">
+            
+            <h1 class="scroll-reveal text-[clamp(4rem,9vw,11rem)] leading-[0.85] font-extrabold tracking-tighter text-[#1a1c1c] dark:text-white" style="transition-delay: 100ms;">
+                DESARROLLO<br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0052FF] to-blue-400 dark:from-white dark:to-gray-500">FRONTEND.</span>
+            </h1>
+
+            <div class="scroll-reveal mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 w-full border-t border-gray-200 dark:border-white/10 pt-12" style="transition-delay: 200ms;">
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-xl font-medium leading-relaxed">
+                    Soy Jonathan Vidal, titulado de Duoc UC. Me especializo en el desarrollo de Landing Pages optimizadas, Dashboards interactivos y aplicaciones web. Disfruto transformar buenas ideas en interfaces limpias, rápidas y fáciles de usar.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 md:justify-end items-start">
+                    <a href="#work" class="group relative px-8 py-4 bg-[#1a1c1c] dark:bg-white text-white dark:text-[#1a1c1c] rounded-full font-bold tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 w-full sm:w-auto text-center hover:shadow-[0_0_40px_rgba(0,82,255,0.3)]">
+                        <span class="relative z-10 flex items-center justify-center gap-2">Explorar Trabajo <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i></span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="group px-8 py-4 bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-[#1a1c1c] dark:text-white rounded-full font-bold tracking-wide backdrop-blur-md hover:bg-gray-100 dark:hover:bg-white/10 transition-colors w-full sm:w-auto text-center">
+                        Ver GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Work Section -->
+    <section id="work" class="px-6 py-32 w-full max-w-[90rem] mx-auto flex flex-col gap-12">
+        <div class="scroll-reveal flex flex-col gap-4 mb-8">
+            <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#1a1c1c] dark:text-white">Proyectos Destacados</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl">Lógica compleja destilada en experiencias visuales de alto nivel.</p>
+        </div>
+
+        <!-- 3D Perspective Wrapper -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full perspective-[2000px]" id="cards-wrapper">
+            
+            <!-- CARD 1: FitGamer -->
+            <div class="glow-card tilt-card scroll-reveal group relative rounded-3xl bg-white dark:bg-[#0a0a10] border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col min-h-[550px] transform-gpu">
+                <div class="glow-overlay hidden dark:block"></div>
+                <div class="p-8 md:p-10 relative z-10 flex flex-col h-full ">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">FitGamer</h3>
+                            <p class="text-gray-600 dark:text-gray-400 font-medium">Gamificación extrema para fitness</p>
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.fitgamer.app&hl=es_CL" target="_blank" class="magnetic-btn w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-gray-200 dark:border-white/10 group-hover:bg-[#1a1c1c] group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors duration-300 shrink-0 cursor-pointer">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 transition-transform duration-300 group-hover:rotate-45"></i>
+                        </a>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 dark:text-gray-500 mb-6 max-w-sm leading-relaxed">
+                        Aplicación nativa que transforma rutinas de ejercicio en misiones RPG, integrando métricas biométricas en tiempo real a través de HealthConnect.
+                    </p>
+
+                    <div class="flex gap-2 flex-wrap mb-8">
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-kotlin-plain colored text-sm"></i>Kotlin</span>
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-android-plain text-[#3DDC84] text-sm"></i>Compose</span>
+                    </div>
+
+                    <div class="relative w-full aspect-[4/3] mt-auto rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black">
+                        <div class="absolute inset-0 bg-[#0052FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                            <a href="https://play.google.com/store/apps/details?id=com.fitgamer.app&hl=es_CL" target="_blank" class="px-6 py-3 bg-white text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-xl hover:scale-105 active:scale-95">Ver Proyecto</a>
+                        </div>
+                        <img src="/portafolio/fitgamer-official.png" alt="FitGamer App" class="project-image w-full h-full object-cover object-top opacity-95 transition-transform duration-300 transform-gpu" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: Cállate Spam -->
+            <div class="glow-card tilt-card scroll-reveal group relative rounded-3xl bg-white dark:bg-[#0a0a10] border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col min-h-[550px] transform-gpu">
+                <div class="glow-overlay hidden dark:block"></div>
+                <div class="p-8 md:p-10 relative z-10 flex flex-col h-full ">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">Cállate Spam</h3>
+                            <p class="text-gray-600 dark:text-gray-400 font-medium">Filtro ML on-device para llamadas</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-400 dark:text-gray-600 shrink-0 cursor-not-allowed opacity-60" title="Descontinuado"><i data-lucide="ban" class="w-5 h-5"></i></div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 dark:text-gray-500 mb-6 max-w-sm leading-relaxed">
+                        Sistema telefónico impulsado por CoreML que analiza patrones de llamadas y bloquea spam en tiempo real sin comprometer la privacidad.
+                    </p>
+
+                    <div class="flex gap-2 flex-wrap mb-8">
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-swift-plain text-[#F05138] text-sm"></i>Swift</span>
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-apple-original dark:text-white text-sm"></i>CoreML</span>
+                    </div>
+
+                    <div class="relative w-full aspect-[4/3] mt-auto rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#111116]">
+                        <div class="absolute inset-0 bg-[#0052FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                            <span class="px-6 py-3 bg-red-500/90 text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-xl cursor-not-allowed tracking-wide">Descontinuado</span>
+                        </div>
+                        <img src="/portafolio/callate-official.png" alt="Cállate Play Store" class="project-image w-full h-full object-contain p-2 md:p-6 opacity-95 transition-transform duration-300 transform-gpu" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3: Fénix Select -->
+            <div class="glow-card tilt-card scroll-reveal group relative rounded-3xl bg-white dark:bg-[#0a0a10] border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col min-h-[550px] transform-gpu">
+                <div class="glow-overlay hidden dark:block"></div>
+                <div class="p-8 md:p-10 relative z-10 flex flex-col h-full ">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">Fénix Select</h3>
+                            <p class="text-gray-600 dark:text-gray-400 font-medium">E-Commerce Premium de Licores</p>
+                        </div>
+                        <a href="https://fenixselect.cl" target="_blank" class="magnetic-btn w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-gray-200 dark:border-white/10 group-hover:bg-[#1a1c1c] group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors duration-300 shrink-0">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 transition-transform duration-300 group-hover:rotate-45"></i>
+                        </a>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 dark:text-gray-500 mb-6 max-w-sm leading-relaxed">
+                        Plataforma comercial brutalista con animaciones a 60fps, optimización radical de imágenes y arquitectura de UI basada en Offcanvas.
+                    </p>
+
+                    <div class="flex gap-2 flex-wrap mb-8">
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-astro-plain text-[#1a1c1c] dark:text-white text-sm"></i>Astro</span>
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-tailwindcss-plain colored text-sm"></i>Tailwind</span>
+                    </div>
+
+                    <div class="relative w-full aspect-[4/3] mt-auto rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black">
+                        <div class="absolute inset-0 bg-[#0052FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm ">
+                            <a href="https://fenixselect.cl" target="_blank" class="px-6 py-3 bg-white text-black font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-xl hover:scale-105 active:scale-95 pointer-events-auto">Visitar Web</a>
+                        </div>
+                        <img src="/portafolio/fenix-official.png" alt="Fénix Select Web" class="project-image w-full h-full object-cover object-top opacity-95 transition-transform duration-300 transform-gpu" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4: Sistema RSVP -->
+            <div class="glow-card tilt-card scroll-reveal group relative rounded-3xl bg-white dark:bg-[#0a0a10] border border-gray-200 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col min-h-[550px] transform-gpu">
+                <div class="glow-overlay hidden dark:block"></div>
+                <div class="p-8 md:p-10 relative z-10 flex flex-col h-full ">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-3xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">Sistema RSVP</h3>
+                            <p class="text-gray-600 dark:text-gray-400 font-medium">Dashboard de eventos en tiempo real</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-400 dark:text-gray-600 shrink-0 cursor-not-allowed opacity-60" title="Vista Previa"><i data-lucide="eye" class="w-5 h-5"></i></div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 dark:text-gray-500 mb-6 max-w-sm leading-relaxed">
+                        Arquitectura serverless para alta concurrencia. Gestión de estado inmutable con React y suscripciones en tiempo real mediante Supabase.
+                    </p>
+
+                    <div class="flex gap-2 flex-wrap mb-8">
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-react-original colored text-sm"></i>React</span>
+                        <span class="font-mono flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-gray-200/50 dark:border-white/5 text-gray-800 dark:text-gray-300"><i class="devicon-supabase-plain colored text-sm"></i>Supabase</span>
+                    </div>
+
+                    <div class="relative w-full aspect-[4/3] mt-auto rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#1f1b1b]">
+                        <div class="absolute inset-0 bg-[#0052FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                            <span class="px-6 py-3 bg-white/50 dark:bg-black/50 text-gray-600 dark:text-gray-300 backdrop-blur-md font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-xl cursor-not-allowed tracking-wide">Vista Previa</span>
+                        </div>
+                        <img src="/portafolio/rsvp-official.png" alt="Sistema RSVP App" class="project-image w-full h-full object-cover object-top opacity-95 transition-transform duration-300 transform-gpu" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Archive List (RedNorte & CuentaApp) -->
+        <div class="mt-20 w-full">
+            <div class="scroll-reveal mb-8">
+                <h3 class="text-3xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">Otros Proyectos</h3>
+                <p class="text-gray-600 dark:text-gray-400">Trabajos adicionales e integraciones de ecosistemas.</p>
+            </div>
+
+            <div class="w-full flex flex-col border-t border-gray-200 dark:border-white/10 scroll-reveal">
+                
+                <!-- Row 1: RedNorte -->
+                <a href="#" class="group flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors gap-6 px-4 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 w-full md:w-3/4">
+                        <span class="font-mono text-xs font-bold text-gray-400 dark:text-gray-600 w-12 shrink-0">2026</span>
+                        <div class="hidden md:block w-32 h-20 bg-gray-100 dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-300 dark:text-gray-700 group-hover:bg-[#0052FF]/10 transition-colors"><i data-lucide="activity" class="w-6 h-6 group-hover:text-[#0052FF] transition-colors"></i></div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h4 class="text-xl font-bold text-[#1a1c1c] dark:text-white group-hover:text-[#0052FF] transition-colors">RedNorte (Clínica Inteligente)</h4>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-400 group-hover:text-[#0052FF] transition-colors"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Sistema de agendamiento médico integral. Cuenta con reasignación automática de turnos mediante microservicios y notificaciones SMS automáticas.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 md:w-1/4 md:justify-end shrink-0">
+                        <span class="font-mono text-[10px] font-bold tracking-widest text-[#1a1c1c] dark:text-white bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1 rounded-full">NODE.JS</span>
+                        <span class="font-mono text-[10px] font-bold tracking-widest text-[#1a1c1c] dark:text-white bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1 rounded-full">MYSQL</span>
+                    </div>
+                </a>
+
+                <!-- Row 2: CuentaApp -->
+                <a href="#" class="group flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors gap-6 px-4 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 w-full md:w-3/4">
+                        <span class="font-mono text-xs font-bold text-gray-400 dark:text-gray-600 w-12 shrink-0">2025</span>
+                        <div class="hidden md:block w-32 h-20 bg-gray-100 dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-300 dark:text-gray-700 group-hover:bg-[#0052FF]/10 transition-colors"><i data-lucide="pie-chart" class="w-6 h-6 group-hover:text-[#0052FF] transition-colors"></i></div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h4 class="text-xl font-bold text-[#1a1c1c] dark:text-white group-hover:text-[#0052FF] transition-colors">CuentaApp</h4>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-400 group-hover:text-[#0052FF] transition-colors"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Plataforma financiera orientada a artesanos para contabilizar ganancias y gastos. Incluye dashboard con gráficos interactivos y sincronización en la nube.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 md:w-1/4 md:justify-end shrink-0">
+                        <span class="font-mono text-[10px] font-bold tracking-widest text-[#1a1c1c] dark:text-white bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1 rounded-full">REACT</span>
+                        <span class="font-mono text-[10px] font-bold tracking-widest text-[#1a1c1c] dark:text-white bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1 rounded-full">FIREBASE</span>
+                    </div>
+                </a>
+
+                <!-- Row 3: Landing Pages -->
+                <a href="#" class="group flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors gap-6 px-4 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 w-full md:w-3/4">
+                        <span class="font-mono text-xs font-bold text-gray-400 dark:text-gray-600 w-12 shrink-0">2025</span>
+                        <div class="hidden md:block w-32 h-20 bg-gray-100 dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-300 dark:text-gray-700 group-hover:bg-[#0052FF]/10 group-hover:border-[#0052FF]/20 transition-colors"><i data-lucide="layout" class="w-6 h-6 group-hover:text-[#0052FF] transition-colors"></i></div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h4 class="text-xl font-bold text-[#1a1c1c] dark:text-white group-hover:text-[#0052FF] transition-colors">Desarrollo Web de Alta Conversión</h4>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-400 group-hover:text-[#0052FF] transition-colors"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">Arquitectura y despliegue de Landing Pages corporativas ultra rápidas, optimizadas para SEO técnico y embudos de venta directos.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 md:w-1/4 md:justify-end shrink-0">
+                        <span class="font-mono text-[10px] font-bold tracking-widest text-[#1a1c1c] dark:text-white bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1 rounded-full">ASTRO</span>
+                        <span class="font-mono text-[10px] font-bold tracking-widest text-[#1a1c1c] dark:text-white bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-3 py-1 rounded-full">TAILWIND</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack (Bento Grid) -->
+    <section id="stack" class="px-6 py-32 w-full max-w-[90rem] mx-auto border-t border-gray-200 dark:border-white/10">
+        <div class="scroll-reveal flex flex-col gap-4 mb-16">
+            <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-[#1a1c1c] dark:text-white">Arquitectura & Stack</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl">Dominio absoluto del ciclo de vida del software.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            
+            <!-- Box 1: Frontend (Spans 2 columns on desktop) -->
+            <div class="scroll-reveal md:col-span-2 md:row-span-2 rounded-3xl bg-gray-50 dark:bg-[#0a0a10] border border-gray-200 dark:border-white/10 p-10 flex flex-col justify-between overflow-hidden relative group">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent dark:from-white/[0.03] dark:to-transparent "></div>
+                <div class="relative z-10 ">
+                    <div class="w-12 h-12 rounded-2xl bg-white dark:bg-black border border-gray-200 dark:border-white/10 flex items-center justify-center mb-6 shadow-sm"><i data-lucide="layout-template" class="w-6 h-6 text-[#1a1c1c] dark:text-white"></i></div>
+                    <h3 class="text-3xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">Desarrollo Frontend & UI</h3>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-sm leading-relaxed">Creación de Landing Pages orientadas a conversión, Dashboards de gestión y sitios web interactivos. Enfoque práctico en el rendimiento, diseño limpio y buena experiencia de usuario.</p>
+                </div>
+                
+                <div class="relative z-10 flex gap-4 mt-8 flex-wrap ">
+                    <div class="px-4 py-3 bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-white/10 flex items-center gap-3 shadow-sm group-hover:-translate-y-1 transition-transform duration-300">
+                        <i class="devicon-react-original colored text-2xl"></i><span class="font-mono text-xs font-bold text-[#1a1c1c] dark:text-white">React</span>
+                    </div>
+                    <div class="px-4 py-3 bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-white/10 flex items-center gap-3 shadow-sm group-hover:-translate-y-1 transition-transform duration-300 delay-75">
+                        <i class="devicon-tailwindcss-plain colored text-2xl"></i><span class="font-mono text-xs font-bold text-[#1a1c1c] dark:text-white">Tailwind</span>
+                    </div>
+                    <div class="px-4 py-3 bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-white/10 flex items-center gap-3 shadow-sm group-hover:-translate-y-1 transition-transform duration-300 delay-150">
+                        <i class="devicon-astro-plain text-[#1a1c1c] dark:text-white text-2xl"></i><span class="font-mono text-xs font-bold text-[#1a1c1c] dark:text-white">Astro</span>
+                    </div>
+                </div>
+
+                <!-- Abstract UI Code Block -->
+                <div class="absolute -right-12 -bottom-12 w-96 h-80 bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl shadow-2xl p-6 opacity-50 dark:opacity-80 group-hover:scale-105 group-hover:-translate-x-4 group-hover:-rotate-2 transition-all duration-700 ease-out hidden md:block rotate-[-5deg] ">
+                    <div class="flex gap-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-400"></div><div class="w-3 h-3 rounded-full bg-yellow-400"></div><div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div class="font-mono text-xs text-gray-500 dark:text-gray-400 flex flex-col gap-2">
+                        <div><span class="text-blue-500">export const</span> <span class="text-yellow-500">Component</span> = () =&gt; {'{'}</div>
+                        <div class="pl-4">const [state, setState] = useState(0);</div>
+                        <div class="pl-4 mt-2">return (</div>
+                        <div class="pl-8 text-green-500"><span class="text-gray-500">&lt;</span>div className<span class="text-gray-500">=</span>"grid brutalist"<span class="text-gray-500">&gt;</span></div>
+                        <div class="pl-12 text-gray-800 dark:text-gray-200 font-bold">Arquitectura de Precisión</div>
+                        <div class="pl-8 text-green-500"><span class="text-gray-500">&lt;/</span>div<span class="text-gray-500">&gt;</span></div>
+                        <div class="pl-4">)</div>
+                        <div>{'}'}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Box 2: Backend -->
+            <div class="scroll-reveal rounded-3xl bg-[#1a1c1c] border border-gray-800 p-10 flex flex-col relative overflow-hidden group">
+                <div class="relative z-10 flex flex-col h-full ">
+                    <div class="w-12 h-12 rounded-2xl bg-black border border-gray-800 flex items-center justify-center mb-6"><i data-lucide="server" class="w-6 h-6 text-green-400"></i></div>
+                    <h3 class="text-2xl font-bold tracking-tight text-white mb-2">Backend & Datos</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Microservicios, APIs robustas y bases de datos relacionales en la nube.</p>
+                    
+                    <!-- Terminal effect -->
+                    <div class="mt-auto pt-8 font-mono text-[10px] text-green-500 opacity-80 group-hover:opacity-100 transition-opacity flex flex-col gap-1">
+                        <div>> node server.js --cluster</div>
+                        <div>[OK] API Gateway listening on 8080</div>
+                        <div>> SELECT * FROM scale;</div>
+                        <div class="flex items-center gap-1"><span class="w-2 h-4 bg-green-500 animate-pulse"></span></div>
+                    </div>
+                </div>
+                
+                <div class="absolute top-6 right-6 flex gap-2 ">
+                    <i class="devicon-nodejs-plain colored text-2xl opacity-40 group-hover:opacity-100 group-hover:rotate-12 transition-all"></i>
+                    <i class="devicon-mysql-plain text-white opacity-40 group-hover:opacity-100 group-hover:-rotate-12 transition-all"></i>
+                </div>
+            </div>
+
+            <!-- Box 3: Native Apps -->
+            <div class="scroll-reveal rounded-3xl bg-gray-50 dark:bg-[#0a0a10] border border-gray-200 dark:border-white/10 p-10 flex flex-col justify-between relative overflow-hidden group">
+                <div class="relative z-10 ">
+                    <div class="w-12 h-12 rounded-2xl bg-white dark:bg-black border border-gray-200 dark:border-white/10 flex items-center justify-center mb-6"><i data-lucide="smartphone" class="w-6 h-6 text-[#1a1c1c] dark:text-white"></i></div>
+                    <h3 class="text-2xl font-bold tracking-tight text-[#1a1c1c] dark:text-white mb-2">Nativo & Móvil</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Ejecución a nivel de sistema. Swift, Kotlin y machine learning on-device.</p>
+                </div>
+
+                <div class="absolute -bottom-8 -right-8 w-40 h-64 border-4 border-gray-200 dark:border-[#1a1c1c] rounded-[2rem] bg-white dark:bg-black transform rotate-12 group-hover:rotate-6 group-hover:-translate-y-4 transition-transform duration-700 ease-out shadow-2xl flex flex-col ">
+                    <div class="w-12 h-1 bg-gray-200 dark:bg-[#1a1c1c] rounded-full mx-auto mt-2"></div>
+                    <div class="flex-grow flex items-center justify-center">
+                        <i class="devicon-swift-plain text-[#1a1c1c] dark:text-white text-4xl opacity-20 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white dark:bg-[#030712] border-t border-gray-200 dark:border-white/10 px-6 py-12 mt-16">
+        <div class="max-w-[90rem] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-mono text-xs font-bold tracking-[0.1em] text-[#1a1c1c] dark:text-white uppercase flex flex-col md:flex-row gap-2 md:gap-8">
+                <span>© 2026 KR0ZAPPS.</span>
+                <span class="text-gray-400 dark:text-gray-600">SISTEMAS DE ALTO RENDIMIENTO.</span>
+            </div>
+            <div class="flex items-center gap-8 font-mono text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                <a class="hover:text-[#0052FF] transition-colors" href="https://github.com" target="_blank">Github</a>
+                <a class="hover:text-[#0052FF] transition-colors" href="#">LinkedIn</a>
+                <a class="hover:text-[#0052FF] transition-colors" href="mailto:hola@kr0zapps.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script is:inline>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeSlider = document.getElementById('theme-slider');
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // 3D Tilt Effect & Glow for Cards
+        const cards = document.querySelectorAll('.tilt-card');
+        
+        cards.forEach(card => {
+            const image = card.querySelector('.project-image');
+            const magneticBtn = card.querySelector('.magnetic-btn');
+            
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Set Glow Position
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+                
+                // 3D Tilt Calculation (Only for non-mobile devices for performance)
+                if(window.innerWidth > 768) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -4; // Max 4 deg
+                    const rotateY = ((x - centerX) / centerX) * 4;
+                    
+                    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                    
+                    // Parallax on inner image
+                    if(image) {
+                        image.style.transform = `translateX(${-rotateY * 1.5}px) translateY(${rotateX * 1.5}px) scale(1.05)`;
+                    }
+
+                    // Magnetic Button Logic
+                    if (magneticBtn) {
+                        const btnRect = magneticBtn.getBoundingClientRect();
+                        const btnCenterX = btnRect.left + btnRect.width / 2 - rect.left;
+                        const btnCenterY = btnRect.top + btnRect.height / 2 - rect.top;
+                        
+                        // If mouse is close to the button, pull it
+                        const distX = x - btnCenterX;
+                        const distY = y - btnCenterY;
+                        const distance = Math.sqrt(distX*distX + distY*distY);
+                        
+                        if(distance < 80) {
+                            magneticBtn.style.transform = `translate(${distX * 0.3}px, ${distY * 0.3}px)`;
+                        } else {
+                            magneticBtn.style.transform = `translate(0px, 0px)`;
+                        }
+                    }
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                if(image) {
+                    image.style.transform = `translateX(0px) translateY(0px) scale(1)`;
+                }
+                if(magneticBtn) {
+                    magneticBtn.style.transform = `translate(0px, 0px)`;
+                }
+            });
+        });
+
+        // Scroll Reveal
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".scroll-reveal");
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                reveals.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        el.classList.add("visible");
+                    }
+                });
+            };
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll(); // Trigger immediately
+        });
+    </script>
+
+    <!-- ThreeJS Interactive Background -->
+    <script is:inline>
+        (function() {
+            const container = document.getElementById('threejs-canvas');
+            if(!container) return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            // Particles Geometry
+            const particlesCount = 800;
+            const posArray = new Float32Array(particlesCount * 3);
+            
+            for(let i=0; i < particlesCount; i++) {
+                // Spread particles across a wide area
+                posArray[i*3] = (Math.random() - 0.5) * 15; // x
+                posArray[i*3+1] = (Math.random() - 0.5) * 15; // y
+                posArray[i*3+2] = (Math.random() - 0.5) * 5; // z
+            }
+
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.02,
+                color: 0x666666,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particlesMesh = new THREE.Points(geometry, material);
+            scene.add(particlesMesh);
+
+            camera.position.z = 4;
+
+            // Handle theme change to update particle colors
+            const updateParticleColor = () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                // Fix for light mode: AdditiveBlending makes colors disappear on white backgrounds.
+                material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+                // Use stark blue for light mode, white for dark mode
+                material.color.setHex(isDark ? 0xffffff : 0x0052FF);
+                // Boost opacity heavily in light mode to make it super visible
+                material.opacity = isDark ? 0.4 : 0.8;
+                // Make particles slightly bigger in light mode so they stand out more against white
+                material.size = isDark ? 0.02 : 0.035;
+            };
+            
+            // Watch for theme changes via mutation observer
+            const observer = new MutationObserver(updateParticleColor);
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+            updateParticleColor(); // Init
+
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsedTime = clock.getElapsedTime();
+
+                // Smooth, gentle ambient rotation (no mouse tracking)
+                particlesMesh.rotation.y += 0.0008;
+                particlesMesh.rotation.x += 0.0004;
+                particlesMesh.position.y = Math.sin(elapsedTime * 0.3) * 0.1;
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        })();
+    </script>
+</Layout>

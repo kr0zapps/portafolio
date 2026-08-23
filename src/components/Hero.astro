@@ -1,0 +1,43 @@
+---
+import { ChevronRight, ArrowDown } from 'lucide-astro';
+---
+
+<section class="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex flex-col items-center justify-center text-center max-w-4xl mx-auto min-h-[90vh]">
+  <!-- Status Badge -->
+  <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-mono mb-8 backdrop-blur-sm">
+    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse-slow"></span>
+    Disponible para nuevos proyectos
+  </div>
+
+  <!-- Main Headline -->
+  <h1 class="text-5xl md:text-7xl font-heading font-bold text-white tracking-tight leading-tight mb-6 text-glow">
+    Transformando ideas en <br class="hidden md:block" />
+    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">
+      experiencias digitales
+    </span>
+  </h1>
+
+  <!-- Subheadline -->
+  <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+    Soy un desarrollador de software autodidacta especializado en aplicaciones móviles en producción y arquitecturas web de alto rendimiento.
+  </p>
+
+  <!-- CTAs -->
+  <div class="flex flex-col sm:flex-row items-center gap-4">
+    <a href="#proyectos" class="group relative inline-flex items-center justify-center px-8 py-3 text-sm font-semibold text-white bg-accent-primary/10 border border-accent-primary/50 rounded-full hover:bg-accent-primary/20 transition-all overflow-hidden box-glow">
+      <div class="absolute inset-0 bg-gradient-to-r from-accent-primary/0 via-accent-primary/10 to-accent-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+      Explorar Proyectos
+      <ChevronRight class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+    </a>
+    
+    <a href="#contacto" class="inline-flex items-center justify-center px-8 py-3 text-sm font-semibold text-slate-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:text-white transition-all">
+      Hablemos
+    </a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 animate-bounce">
+    <span class="text-xs font-mono uppercase tracking-widest">Descubrir</span>
+    <ArrowDown class="w-4 h-4" />
+  </div>
+</section>

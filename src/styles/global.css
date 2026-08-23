@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "system-ui", "sans-serif";
+  --font-mono: "JetBrains Mono", "monospace";
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Glow Effect for Cards (Linear/Vercel Style) */
+#cards-wrapper:hover > .glow-card::before {
+  opacity: 1;
+}
+
+.glow-card {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .glow-card {
+  background-color: rgba(10, 10, 16, 0.8);
+}
+
+.glow-card::before,
+.glow-card > .glow-overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 500ms;
+  pointer-events: none;
+}
+
+/* The subtle border highlight */
+.glow-card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(0, 82, 255, 0.15),
+    transparent 40%
+  );
+  z-index: 3;
+}
+.dark .glow-card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.08),
+    transparent 40%
+  );
+}
+
+/* The inner glow highlight */
+.glow-card > .glow-overlay {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(0, 82, 255, 0.05),
+    transparent 40%
+  );
+  z-index: 1;
+}
+.dark .glow-card > .glow-overlay {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.04),
+    transparent 40%
+  );
+}
+
+@keyframes gradient-xy {
+    0%, 100% {
+        background-size: 400% 400%;
+        background-position: left center;
+    }
+    50% {
+        background-size: 200% 200%;
+        background-position: right center;
+    }
+}
+.animate-gradient-xy {
+    animation: gradient-xy 3s ease infinite;
+}

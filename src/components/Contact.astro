@@ -1,0 +1,36 @@
+---
+import { Mail, Github, Linkedin, MessageSquare } from 'lucide-astro';
+---
+
+<section class="py-24 px-6 max-w-4xl mx-auto border-t border-white/5 text-center">
+  <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-primary/10 mb-8 border border-accent-primary/20">
+    <MessageSquare class="w-8 h-8 text-accent-primary" />
+  </div>
+  
+  <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+    ¿Tienes un proyecto en mente?
+  </h2>
+  
+  <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+    Actualmente estoy abierto a nuevas oportunidades, ya sea para roles a tiempo completo o proyectos freelance. Si tienes una idea, una consulta, o simplemente quieres saludar, mi bandeja de entrada siempre está abierta.
+  </p>
+  
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <a href="mailto:krosa@ejemplo.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-accent-primary border border-accent-primary rounded-full hover:bg-accent-primary/90 transition-all box-glow w-full sm:w-auto">
+      <Mail class="w-5 h-5 mr-2" />
+      Contáctame
+    </a>
+    
+    <div class="flex items-center gap-4 mt-4 sm:mt-0">
+      <a href="https://github.com/krosa" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full flex items-center justify-center bg-surface border border-white/10 hover:border-accent-primary/50 text-slate-300 hover:text-accent-primary transition-all group">
+        <Github class="w-6 h-6 group-hover:scale-110 transition-transform" />
+        <span class="sr-only">GitHub</span>
+      </a>
+      
+      <a href="https://linkedin.com/in/krosa" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full flex items-center justify-center bg-surface border border-white/10 hover:border-accent-primary/50 text-slate-300 hover:text-accent-primary transition-all group">
+        <Linkedin class="w-6 h-6 group-hover:scale-110 transition-transform" />
+        <span class="sr-only">LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>
